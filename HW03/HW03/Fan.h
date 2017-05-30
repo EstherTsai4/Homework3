@@ -1,3 +1,4 @@
+#pragma once
 class Fan
 {
 public:
@@ -6,24 +7,13 @@ public:
 	bool on;
 	double radius;
 
-	Fan()
-	{
-		//keeps fan off
-		bool on = false;
-	}
+	//constructor for fan
+	Fan();
 
 	//function to turn on the fan
-	void TurnOn()
-	{
-		on = true;
-		cout << "on. " << endl;
+	void TurnOn();
 
-	}
+	//function to turn off the fan
+	void TurnOff();
 
-	void TurnOff()
-	{
-		on = false;
-		cout << "off. " << endl;
-	}
-
-}; #pragma once
+}; 

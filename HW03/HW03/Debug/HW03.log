@@ -1,3 +1,4 @@
-﻿  HW03.cpp
-  HW03.vcxproj -> C:\Users\toest\Documents\Freshman\CS\HW03\Debug\HW03.exe
-  HW03.vcxproj -> C:\Users\toest\Documents\Freshman\CS\HW03\Debug\HW03.pdb (Full PDB)
+﻿  MyInteger.cpp
+c:\users\toest\documents\github\homework3\hw03\hw03\myinteger.cpp(116): warning C4018: '<': signed/unsigned mismatch
+  HW03.vcxproj -> C:\Users\toest\Documents\GitHub\Homework3\HW03\Debug\HW03.exe
+  HW03.vcxproj -> C:\Users\toest\Documents\GitHub\Homework3\HW03\Debug\HW03.pdb (Full PDB)

@@ -1,147 +1,12 @@
 #include <iostream>
+#include "Fan.h"
+#include "QuadraticEquation.h"
+#include "EvenNumbers.h"
+#include "SortingString.h"
+#include "MyInteger.h"
 
 using namespace std;
 
-//Exercise 9.2: Fan Class
-class Fan 
-{
-public:
-	//members of object
-	int speed;
-	bool on;
-	double radius;
-
-	Fan()
-	{
-		//keeps fan off
-		bool on = false;
-	}
-
-	//function to turn on the fan
-	void TurnOn()
-	{
-		on = true;
-		cout << "on. " << endl;
-
-	}
-
-	void TurnOff()
-	{
-		on = false;
-		cout << "off. " << endl;
-	}
-
-};
-
-//Exercise 9.6: Quadratic Equations Class
-class QuadraticEquation
-{
-public:
-	//data fields for object
-	double a;
-	double b;
-	double c;
-
-	//constructor for a, b, and c (no argument)
-	QuadraticEquation()
-	{
-		a = 1.0;
-		b = 1.0;
-		c = 1.0;
-	}
-
-	//return the new a, b, and c value
-	double getvaluea()
-	{
-		double NewA = 0;
-		cout << "Enter in the value of a: ";
-		cin >> NewA;
-		return NewA;
-	}
-	double getvalueb()
-	{
-		double NewB = 0;
-		cout << "Enter in the value of b: ";
-		cin >> NewB;
-		return NewB;
-	}
-	double getvaluec()
-	{
-		double NewC = 0;
-		cout << "Enter in the value of c: ";
-		cin >> NewC;
-		return NewC;
-	}
-
-	//constructor for a, b, and c (with argument)
-	QuadraticEquation(double NewA, double NewB, double NewC)
-	{
-		a = NewA;
-		b = NewB;
-		c = NewC;
-	}
-
-	//calculate and return discriminant
-	double getDiscriminant(double a, double b, double c)
-	{
-		double discriminant = 0;
-		discriminant = (b*b) - (4 * a*c);
-
-		return discriminant;
-	}
-
-	//calculate and return the first root
-	double getRoot1(double discriminant, double a, double b)
-	{
-		double root1 = 0;
-		if (discriminant >= 0)
-		{
-			root1 = (-b + sqrt(discriminant)) / (2 * a);
-		}
-		else
-		{
-			root1 = 0;
-		}
-		return root1;
-	}
-
-	//calculate and return the second root
-	double getRoot2(double discriminant, double a, double b)
-	{
-		double root2 = 0;
-		if (discriminant >= 0)
-		{
-			root2 = (-b - sqrt(discriminant)) / (2 * a);
-		}
-		else
-		{
-			root2 = 0;
-		}
-		return root2;
-	}
-
-	void DisplayRoots(double root1, double root2)
-	{
-
-		if (root1 != 0 && root2 == 0)
-		{
-			cout << "The equation only has one root: "<< root1 << endl;
-		}
-		else if (root2 != 0 && root2 == 0)
-		{
-			cout << "The equation only has one root: "<< root2 << endl;
-		}
-		else if (root1 == 0 && root2 == 0)
-		{
-			cout << "The equation has no real roots." << endl;
-		}
-		else if (root1 != 0 && root2 != 0)
-		{
-			cout << "The equation has two roots: " << root1 << " and " << root2 << endl;
-		}
-	}
-
-};
 
 int main()
 {
@@ -166,7 +31,133 @@ int main()
 	fan2.TurnOff();
 
 	//Exercise 9.6
+	//ask user to input a, b, and c
+	QuadraticEquation Equation1;
+	double NewA;
+	double NewB;
+	double NewC;
 
+	cout << "Enter in value for a: ";
+	cin >> NewA;
+	cout << "Enter in value for b: ";
+	cin >> NewB;
+	cout << "Enter in value for c: ";
+	cin >> NewC;
+
+	//set values of a, b, and c
+	Equation1.setABC(NewA, NewB, NewC);
+
+	//Call funtion to calculate discriminant
+	cout << "Your discriminant is: " << Equation1.getDiscriminant() << endl;
+
+	//Call function to calculate the two roots
+	Equation1.getRoot1();
+	Equation1.getRoot2();
+
+	//call function to display the roots
+	Equation1.DisplayRoots();
+
+	//Exercise 9.11: Even Numbers
+	int newValue = 0;
+	cout << "Enter in a value: ";
+	cin >> newValue;
+	EvenNumbers Value1(newValue);
+
+	cout << "You entered in: " << Value1.getValue() << endl;
+
+	cout << "The previous even number is: " << Value1.getPrevious() << endl;
+	cout << "The next even number is: " << Value1.getNext() << endl;
+
+	//Exercise 10.4
+	string s;
+	cout << "Enter a string s: ";
+	cin >> s;
+	cout << "The sorted string is: " << sort(s) << endl;
+
+	//Exercise 10.10
+	//ask user to enter in a value
+	int value;
+
+	cout << "Enter in a value: ";
+	cin >> value;
+	MyInteger value1(value);
+
+	//return entered value
+	cout << "You entered: " << value1.getValue() << endl;
+
+	//return if value is even or odd or prime using const functions
+	if (value1.isEven() == true)
+	{
+		cout << "The value is even." << endl;
+	}
+	if (value1.isOdd() == true)
+	{
+		cout << "The value is odd." << endl;
+	}
+	if (value1.isPrime() == true)
+	{
+		cout << "The value is prime." << endl;
+	}
+
+	//ask user for new value
+	int Newvalue;
+	cout << "Enter in another value: ";
+	cin >> Newvalue;
+
+	//see if new value is even, odd, or prime
+	if (value1.isEven(Newvalue) == true)
+	{
+		cout << "The new value is even." << endl;
+	}
+	if (value1.isOdd(Newvalue) == true)
+	{
+		cout << "The new value is odd." << endl;
+	}
+	if (value1.isPrime(Newvalue) == true)
+	{
+		cout << "The new value is prime." << endl;
+	}
+	
+	//see if the object is even, odd, or prime
+	if (value1.isEven(value1) == true)
+	{
+		cout << "The object is even." << endl;
+	}
+	if (value1.isOdd(value1) == true)
+	{
+		cout << "The object is odd." << endl;
+	}
+	if (value1.isPrime(value1) == true)
+	{
+		cout << "The object is prime." << endl;
+	}
+
+	//see if the object is equal to the new entered value
+	if (value1.equals(Newvalue) == true)
+	{
+		cout << "The object is equal to the new entered value." << endl;
+	}
+	else
+	{
+		cout << "The object is not equal to the new entered value." << endl;
+	}
+
+	//see if the object is equal to the first entered value
+	if (value1.equals(value1) == true)
+	{
+		cout << "The object is equal to the first entered value." << endl;
+	}
+	else
+	{
+		cout << "The object is not equal to the first entered value." << endl;
+	}
+	//ask user to enter in a string
+	string word;
+	cout << "Enter in a string: ";
+	cin >> word;
+
+	//change string to integer value
+	cout << "The integer value of the string is: " << value1.parseInt(word) << endl;
 
 	return 0;
 }

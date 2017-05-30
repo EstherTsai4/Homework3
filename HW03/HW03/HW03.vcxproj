@@ -142,11 +142,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EvenNumbers.cpp" />
     <ClCompile Include="Fan.cpp" />
     <ClCompile Include="HW03.cpp" />
+    <ClCompile Include="MyInteger.cpp" />
+    <ClCompile Include="QuadraticEquation.cpp" />
+    <ClCompile Include="SortingString.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EvenNumbers.h" />
     <ClInclude Include="Fan.h" />
+    <ClInclude Include="MyInteger.h" />
+    <ClInclude Include="QuadraticEquation.h" />
+    <ClInclude Include="SortingString.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
